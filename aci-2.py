@@ -29,7 +29,7 @@ print("&"*70)
 
 # GET https://10.10.20.14/api/class/topSystem.json
 
-url =  "https://sandboxapicdc.cisco1.com/api/class/topSystem.json"
+url =  "https://sandboxapicdc.cisco.com/api/class/topSystem.json"
 cabecera = {"Content-Type": "application/json"}
 cookie = {"APIC-cookie":API_Token}
 
@@ -49,3 +49,9 @@ for i in range(0,3):
     state = respuesta_json["imdata"][i]["topSystem"]["attributes"]["state"]
 
     print("address: "+address+"     "+"fabricMAC: "+fabricMAC+"     ", "state: "+state)
+
+#En la petición
+print(respuesta.request.url)
+print("peticion: ",respuesta.request.headers)
+#En la respuesta
+print("respuesta: ",respuesta.url)
