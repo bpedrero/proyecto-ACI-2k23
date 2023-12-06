@@ -28,8 +28,8 @@ url = "https://sandboxapicdc.cisco.com/api/aaaLogin.json"
 dato = {
     "aaaUser" : {
         "attributes" : {
-            "name" : "conf.usuario",
-            "pwd" : "conf.clave"
+            "name" : conf.usuario,
+            "pwd" : conf.clave
         }
     }
 }
@@ -38,4 +38,5 @@ cabecera = {"Content-Type": "application/json"}
 respuesta = requests.post(url, data=json.dumps(dato), headers=cabecera,verify=False)
 respuesta_json = respuesta.json()
 print(respuesta_json)
-
+Token = respuesta_json["imdata"][0]["aaaLogin"]["attributes"]["token"]
+print("\nAPI-token: "+Token)
